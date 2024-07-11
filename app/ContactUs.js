@@ -2,7 +2,8 @@
 export default ContactUs;
 const ContactUs = () => {
     return (
-      <div className="container">
+      <div className="containe
+      r">
         <h1 className="title">Contact Us</h1>
         <p className="description">
           Need assistance? You can reach us by calling or emailing your shopping queries using the contact information provided below or you can fill out the given form and we will reach out to you in decent time.
