@@ -1,4 +1,3 @@
-/* styles/Home.module.css */
 .container {
   padding: 0 2rem;
 }
@@ -6,13 +5,30 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
   border-bottom: 1px solid #eaeaea;
+  padding: 10px 20px;
 }
 
 .navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  width: 100%; /* Ensure the navbar takes the full width */
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  margin-right: 20px;
+}
+
+.navItem:last-child {
+  margin-right: 0;
 }
 
 .navLink {
@@ -21,7 +37,12 @@
   color: #0070f3;
 }
 
+.navLink:hover {
+  text-decoration: underline;
+}
+
 .authButtons {
+  margin-left: auto; /* Pushes the auth buttons to the right */
   display: flex;
 }
 
