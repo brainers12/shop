@@ -6,9 +6,11 @@ import styles from './page.module.css';
 export default function Home() {
   return (
     <div className={styles.container}>
+      
+
       <header className={styles.header}>
         <nav className={styles.navbar}>
-         
+
           <div className={styles.authButtons}>
             <button className={styles.loginButton}>Login</button>
             <button className={styles.signupButton}>Sign up</button>
