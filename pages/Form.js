@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import styles from './styles/Form.module.css';
+import styles from './styles/form.module.css';
 
 const Forum = () => {
   const [items, setItems] = useState([{ name: '', store: '', brand: '', priceFrom: '', priceTo: '' }]);
