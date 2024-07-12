@@ -13,7 +13,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; 
+    width: 100%;
   }
 
   .navList {
@@ -42,7 +42,7 @@
   }
 
   .authButtons {
-    margin-left: auto; 
+    margin-left: auto;
     display: flex;
   }
 
@@ -106,4 +106,54 @@
   .description {
     flex: 1;
     text-align: justify;
+  }
+
+  /* Login Page css */
+  .formContainer {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputGroup {
+    margin-bottom: 15px;
+  }
+
+  .inputGroup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .inputGroup input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .submitButton {
+    padding: 10px 20px;
+    border: none;
+    background-color: #0070f3;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .submitButton:hover {
+    background-color: #0053b3;
+  }
+
+  .signupPrompt {
+    text-align: center;
+    margin-top: 20px;
   }
