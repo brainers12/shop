@@ -1,0 +1,165 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; 
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaeaea;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; 
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  margin-right: 20px;
+}
+
+.navItem:last-child {
+  margin-right: 0;
+}
+
+.navLink {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #0070f3;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
+.authButtons {
+  margin-left: auto; 
+  display: flex;
+}
+
+.loginButton,
+.signupButton {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-start; 
+  gap: 20px; 
+}
+
+.leftColumn, .rightColumn {
+  flex: 1;
+  padding: 20px;
+}
+
+.leftColumn {
+  max-width: 40%; 
+  text-align: left; 
+}
+
+.rightColumn {
+  max-width: 60%; 
+  text-align: left; 
+}
+
+.description {
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.email {
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  padding: 20px; 
+  background-color: #fff; 
+  border: 1px solid #201f1f; 
+  border-radius: 5px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+  width: 95%;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.formControl {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formControl:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn {
+  display: block; 
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btnPrimary {
+  background-color: #007bff;
+}
