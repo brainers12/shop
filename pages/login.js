@@ -1,10 +1,38 @@
-import Login from '../app/components/Login';
-
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from './styles/index.module.css';
 
 export default function LoginPage() {
+  const [emailOrMobile, setEmailOrMobile] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const router = useRouter();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ emailOrMobile, password }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('firstName', data.firstName);
+        router.push('/');
+      } else {
+        setError(data.message || 'Login failed');
+      }
+    } catch (error) {
+      setError('An unexpected error occurred');
+      console.error('Error during login:', error);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -29,7 +57,7 @@ export default function LoginPage() {
               <button className={styles.loginButton}>Login</button>
             </Link>
             <Link href="/signup">
-              <button className={styles.signupButton}>Sign up</button>
+              <button className={styles.signupButton}>Sign Up</button>
             </Link>
           </div>
         </nav>
@@ -38,14 +66,29 @@ export default function LoginPage() {
       <main className={styles.main}>
         <h1 className={styles.title}>Log In</h1>
         <div className={styles.formContainer}>
-          <form className={styles.loginForm}>
+          <form className={styles.loginForm} onSubmit={handleSubmit}>
+            {error && <p className={styles.error}>{error}</p>}
             <div className={styles.inputGroup}>
-              <label htmlFor="email">Enter E-mail address or mobile number</label>
-              <input type="text" id="email" name="email" required />
+              <label htmlFor="emailOrMobile">Enter E-mail address or mobile number</label>
+              <input
+                type="text"
+                id="emailOrMobile"
+                name="emailOrMobile"
+                value={emailOrMobile}
+                onChange={(e) => setEmailOrMobile(e.target.value)}
+                required
+              />
             </div>
             <div className={styles.inputGroup}>
               <label htmlFor="password">Enter Password</label>
-              <input type="password" id="password" name="password" required />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </div>
             <button type="submit" className={styles.submitButton}>Log In</button>
           </form>

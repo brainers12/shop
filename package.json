@@ -9,9 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
+    "@clerk/clerk-react": "^5.2.9",
+    "@clerk/nextjs": "^5.2.6",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "framer-motion": "^11.3.17",
+    "jsonwebtoken": "^9.0.2",
+    "next": "14.2.4",
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.4",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.4"
+    "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2"
   },
   "devDependencies": {
     "eslint": "^8",

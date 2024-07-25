@@ -1,7 +1,27 @@
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from './styles/index.module.css';
 
 export default function Home() {
+  const [firstName, setFirstName] = useState(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    const storedFirstName = localStorage.getItem('firstName');
+    if (token && storedFirstName) {
+      setFirstName(storedFirstName);
+    }
+  }, []);
+
+  const handleSignOut = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('firstName');
+    setFirstName(null);
+    router.push('/login');
+  };
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -18,12 +38,21 @@ export default function Home() {
             </li>
           </ul>
           <div className={styles.authButtons}>
-            <Link href="/login">
-              <button className={styles.loginButton}>Login</button>
-            </Link>
-            <Link href="/signup">
-              <button className={styles.signupButton}>Sign up</button>
-            </Link>
+            {firstName ? (
+              <>
+                <span className={styles.greeting}>Hi {firstName}</span>
+                <button className={styles.signOutButton} onClick={handleSignOut}>Sign Out</button>
+              </>
+            ) : (
+              <>
+                <Link href="/login">
+                  <button className={styles.loginButton}>Login</button>
+                </Link>
+                <Link href="/signup">
+                  <button className={styles.signupButton}>Sign Up</button>
+                </Link>
+              </>
+            )}
           </div>
         </nav>
       </header>
@@ -37,9 +66,9 @@ export default function Home() {
           {/* <img src="/placeholder.png" alt="Placeholder" /> */}
         </div>
         <div className={styles.contactSection}>
-            <Link href="/Form">
-              <button className={styles.contactButton}>Shop by form</button>
-            </Link>
+          <Link href="/Form">
+            <button className={styles.contactButton}>Shop by form</button>
+          </Link>
           
           <p>OR</p>
           <p>Call us xxx-xxx-xxxx</p>
