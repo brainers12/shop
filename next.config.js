@@ -1,12 +1,8 @@
 module.exports = {
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback.fs = false;
-    }
-    return config;
+  reactStrictMode: true,
+  env: {
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+    EMAIL_USER: process.env.EMAIL_USER,
+    EMAIL_PASS: process.env.EMAIL_PASS,
   },
 };

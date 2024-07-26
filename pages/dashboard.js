@@ -1,20 +1,26 @@
 import { useAuth } from '@clerk/clerk-react';
-import { SignInButton } from '@clerk/clerk-react';
-import { SignUpButton } from '@clerk/clerk-react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Link from 'next/link';
-import styles from './styles/index.module.css'; // Ensure this path is correct
+import styles from './styles/dashboard.module.css'; // Adjust the path as needed
 
-export default function Home() {
-  const { isSignedIn } = useAuth();
+export default function Dashboard() {
+  const { isSignedIn, user, signOut } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (isSignedIn) {
-      router.push('/dashboard');
+    if (!isSignedIn) {
+      router.push('/sign-in');
     }
   }, [isSignedIn]);
+
+  if (!isSignedIn) return null;
+
+  const firstName = user?.firstName;
+
+  const handleSignOut = () => {
+    signOut();
+  };
 
   return (
     <div className={styles.container}>
@@ -28,24 +34,28 @@ export default function Home() {
               <Link href="/about" className={styles.navLink}>About Us</Link>
             </li>
             <li className={styles.navItem}>
-               <Link href="/contact" className={styles.navLink}>Contact Us</Link> 
+              <Link href="/contact" className={styles.navLink}>Contact Us</Link>
             </li>
           </ul>
           <div className={styles.authButtons}>
-            <SignInButton />
-            <SignUpButton />
+            <span className={styles.greeting}>Hi {firstName}</span>
+            <button className={styles.signOutButton} onClick={handleSignOut}>Sign Out</button>
           </div>
+          
         </nav>
       </header>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>WELCOME!</h1>
+        <h1 className={styles.title}>Dashboard</h1>
         <p className={styles.description}>
+          Welcome to your dashboard, {firstName}!
+        </p>
+        <p>
           There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...
         </p>
-        <div className={styles.imagePlaceholder}>
+        <div>
           <Link href="/Form">
-            <button className={styles.contactButton}>Shop by form</button>
+            <button>Shop by form</button>
           </Link>
           <p>OR</p>
           <p>Call us xxx-xxx-xxxx</p>

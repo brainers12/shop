@@ -49,14 +49,7 @@ const Forum = () => {
               <Link href="/contact" className={styles.navLink}>Contact Us</Link>
             </li>
           </ul>
-          <div className={styles.authButtons}>
-            <Link href="/login">
-              <button className={styles.loginButton}>Login</button>
-            </Link>
-            <Link href="/signup">
-              <button className={styles.signupButton}>Sign up</button>
-            </Link>
-          </div>
+
         </nav>
       </header>
       <h1 className={styles.heading}>Shopping Form</h1>

@@ -1,31 +1,27 @@
-import { ClerkProvider } from '@clerk/clerk-react';
+import { ClerkProvider, RedirectToSignIn, SignedIn, SignedOut } from '@clerk/clerk-react';
 import { useRouter } from 'next/router';
 
-const frontendApi = process.env.NEXT_PUBLIC_CLERK_FRONTEND_API;
+const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
 function ClerkWrapper({ children }) {
-  const { pathname } = useRouter();
-
-  const isPublicPath = pathname.startsWith('/public');
+  const router = useRouter();
 
   return (
-    <ClerkProvider frontendApi={frontendApi} navigate={(to) => router.push(to)}>
-      {isPublicPath ? children : <ProtectedRoute>{children}</ProtectedRoute>}
+    <ClerkProvider publishableKey={publishableKey} navigate={(to) => router.push(to)}>
+      {children}
     </ClerkProvider>
   );
 }
 
 function ProtectedRoute({ children }) {
-  const { isSignedIn, isLoaded } = useAuth();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (isLoaded && !isSignedIn) {
-      router.push('/sign-in');
-    }
-  }, [isLoaded, isSignedIn]);
-
-  return isSignedIn ? children : null;
+  return (
+    <>
+      <SignedIn>{children}</SignedIn>
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
+    </>
+  );
 }
 
 export default ClerkWrapper;

@@ -1,0 +1,160 @@
+.container {
+    padding: 0 2rem;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eaeaea;
+    padding: 10px 20px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .navList {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navItem {
+    margin-right: 20px;
+  }
+  
+  .navItem:last-child {
+    margin-right: 0;
+  }
+  
+  .navLink {
+    margin-right: 1rem;
+    text-decoration: none;
+    color: #0070f3;
+  }
+  
+  .navLink:hover {
+    text-decoration: underline;
+  }
+  
+  .authButtons {
+    margin-left: auto;
+    display: flex;
+  }
+  
+  .loginButton,
+  .signupButton {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #0070f3;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .main {
+    padding: 4rem 0;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .imagePlaceholder {
+    margin: 2rem 0;
+  }
+  
+  .contactSection {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contactButton {
+    padding: 0.5rem 2rem;
+    border: none;
+    background-color: #0070f3;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  
+  .paragraph {
+    display: flex;
+    align-items: center;
+  }
+  
+  .startImage,
+  .endImage {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+  }
+  
+  .description {
+    flex: 1;
+    text-align: justify;
+  }
+  
+  /* Login Page css */
+  .formContainer {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .inputGroup {
+    margin-bottom: 15px;
+  }
+  
+  .inputGroup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .inputGroup input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submitButton {
+    padding: 10px 20px;
+    border: none;
+    background-color: #0070f3;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .submitButton:hover {
+    background-color: #0053b3;
+  }
+  
+  .signupPrompt {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
