@@ -3,12 +3,13 @@ import Link from 'next/link';
 import styles from './styles/form.module.css';
 
 const Forum = () => {
-  const [items, setItems] = useState([{ name: '', store: '', brand: '', priceFrom: '', priceTo: '' }]);
+  const [items, setItems] = useState([{ name: '', store: '', brand: '', priceFrom: '', priceTo: '', quantity: '' }]);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [contactInfo, setContactInfo] = useState({ name: '', contactNumber: '', email: '', address: '', city: '', province: '', postalCode: '' });
   const [shippingMethod, setShippingMethod] = useState('');
   const [termsAgreed, setTermsAgreed] = useState(false);
   const [disclaimerAgreed, setDisclaimerAgreed] = useState(false);
+  const [instructions, setInstructions] = useState('');
 
   const handleItemChange = (index, field, value) => {
     const newItems = [...items];
@@ -17,7 +18,7 @@ const Forum = () => {
   };
 
   const handleAddItem = () => {
-    setItems([...items, { name: '', store: '', brand: '', priceFrom: '', priceTo: '' }]);
+    setItems([...items, { name: '', store: '', brand: '', priceFrom: '', priceTo: '', quantity: '' }]);
   };
 
   const handleRemoveItem = (index) => {
@@ -29,9 +30,29 @@ const Forum = () => {
     setContactInfo({ ...contactInfo, [field]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', { items, uploadedImage, contactInfo, shippingMethod, termsAgreed, disclaimerAgreed });
+    const formData = new FormData();
+    formData.append('items', JSON.stringify(items));
+    if (uploadedImage) {
+      formData.append('uploadedImage', uploadedImage);
+    }
+    formData.append('contactInfo', JSON.stringify(contactInfo));
+    formData.append('shippingMethod', shippingMethod);
+    formData.append('termsAgreed', termsAgreed);
+    formData.append('disclaimerAgreed', disclaimerAgreed);
+    formData.append('instructions', instructions);
+
+    const response = await fetch('/api/send-form', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (response.ok) {
+      alert('Form submitted successfully!');
+    } else {
+      alert('Failed to submit the form.');
+    }
   };
 
   return (
@@ -49,7 +70,6 @@ const Forum = () => {
               <Link href="/contact" className={styles.navLink}>Contact Us</Link>
             </li>
           </ul>
-
         </nav>
       </header>
       <h1 className={styles.heading}>Shopping Form</h1>
@@ -63,6 +83,7 @@ const Forum = () => {
             <input type="text" placeholder="Preferred Brand" value={item.brand} onChange={(e) => handleItemChange(index, 'brand', e.target.value)} />
             <input type="text" placeholder="Preferred Price From" value={item.priceFrom} onChange={(e) => handleItemChange(index, 'priceFrom', e.target.value)} />
             <input type="text" placeholder="Preferred Price To" value={item.priceTo} onChange={(e) => handleItemChange(index, 'priceTo', e.target.value)} />
+            <input type="number" placeholder="Quantity" value={item.quantity} onChange={(e) => handleItemChange(index, 'quantity', e.target.value)} />
             <button type="button" className={styles.removeButton} onClick={() => handleRemoveItem(index)}>Remove Item</button>
           </div>
         ))}
@@ -93,6 +114,11 @@ const Forum = () => {
             <option value="FedEx">FedEx</option>
             <option value="Other">Other</option>
           </select>
+        </div>
+
+        <div className={styles.instructionsSection}>
+          <label>Additional Instructions</label>
+          <textarea placeholder="Write your instructions here" value={instructions} onChange={(e) => setInstructions(e.target.value)} />
         </div>
 
         <div className={styles.termsSection}>
