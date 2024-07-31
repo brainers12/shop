@@ -1,160 +1,122 @@
+/* pages/styles/dashboard.module.css */
+
 .container {
-    padding: 0 2rem;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #eaeaea;
-    padding: 10px 20px;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .navList {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navItem {
-    margin-right: 20px;
-  }
-  
-  .navItem:last-child {
-    margin-right: 0;
-  }
-  
-  .navLink {
-    margin-right: 1rem;
-    text-decoration: none;
-    color: #0070f3;
-  }
-  
-  .navLink:hover {
-    text-decoration: underline;
-  }
-  
-  .authButtons {
-    margin-left: auto;
-    display: flex;
-  }
-  
-  .loginButton,
-  .signupButton {
-    margin-left: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: #0070f3;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .main {
-    padding: 4rem 0;
-    text-align: center;
-  }
-  
-  .title {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-  }
-  
-  .description {
-    font-size: 1.2rem;
-    margin-bottom: 3rem;
-  }
-  
-  .imagePlaceholder {
-    margin: 2rem 0;
-  }
-  
-  .contactSection {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .contactButton {
-    padding: 0.5rem 2rem;
-    border: none;
-    background-color: #0070f3;
-    color: white;
-    cursor: pointer;
-    margin-bottom: 1rem;
-  }
-  
-  .paragraph {
-    display: flex;
-    align-items: center;
-  }
-  
-  .startImage,
-  .endImage {
-    width: 20px;
-    height: 20px;
-    margin: 0 10px;
-  }
-  
-  .description {
-    flex: 1;
-    text-align: justify;
-  }
-  
-  /* Login Page css */
-  .formContainer {
-    background-color: #f7f7f7;
-    padding: 20px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-  
-  .loginForm {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .inputGroup {
-    margin-bottom: 15px;
-  }
-  
-  .inputGroup label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .inputGroup input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .submitButton {
-    padding: 10px 20px;
-    border: none;
-    background-color: #0070f3;
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .submitButton:hover {
-    background-color: #0053b3;
-  }
-  
-  .signupPrompt {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 2rem;
+  background-color: #111827; /* Background color */
+  color: #ffffff; /* Text color */
+}
+
+.header {
+  height: 80px; /* Header height */
+  background-color: #1f2937; /* Secondary color */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  margin: 0;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #ffffff; /* Text color */
+  font-weight: bold;
+  transition: color 0.3s; /* Transition duration */
+}
+
+.navLink:hover {
+  color: #6366f1; /* Primary color */
+}
+
+.authButtons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.greeting {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.signOutButton {
+  background-color: #6366f1; /* Primary color */
+  color: #ffffff; /* Text color */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px; /* Border radius */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transition duration */
+}
+
+.signOutButton:hover {
+  background-color: #4f46e5; /* Button hover background */
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 3rem;
+  color: #ffffff; /* Text color */
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #ffffff; /* Text color */
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.primaryButton {
+  background-color: #6366f1; /* Primary color */
+  color: #ffffff; /* Text color */
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px; /* Border radius */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transition duration */
+}
+
+.primaryButton:hover {
+  background-color: #4f46e5; /* Button hover background */
+}

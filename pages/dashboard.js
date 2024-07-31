@@ -27,6 +27,11 @@ export default function Dashboard() {
       <header className={styles.header}>
         <nav className={styles.navbar}>
           <ul className={styles.navList}>
+            <li className={styles.logo}>
+              <Link href="/">
+                <img src="/img/user4.png" alt="Logo" width={50} height={50} />
+              </Link>
+            </li>
             <li className={styles.navItem}>
               <Link href="/" className={styles.navLink}>Home</Link>
             </li>
@@ -41,7 +46,6 @@ export default function Dashboard() {
             <span className={styles.greeting}>Hi {firstName}</span>
             <button className={styles.signOutButton} onClick={handleSignOut}>Sign Out</button>
           </div>
-          
         </nav>
       </header>
 
@@ -53,9 +57,9 @@ export default function Dashboard() {
         <p>
           There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable...
         </p>
-        <div>
+        <div className={styles.buttons}>
           <Link href="/Form">
-            <button>Shop by form</button>
+            <button className={styles.primaryButton}>Shop by form</button>
           </Link>
           <p>OR</p>
           <p>Call us xxx-xxx-xxxx</p>

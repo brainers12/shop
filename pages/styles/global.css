@@ -13,6 +13,11 @@
   --button-secondary-hover-bg: #3f4957;
 }
 
+/* styles/globals.css */
+html {
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
